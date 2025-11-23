@@ -45,6 +45,7 @@ python3 main.py
 | **Right Arrow** | Move Right |
 | **Down Arrow** | Soft Drop (Fall Faster) |
 | **Up Arrow** | Rotate Piece |
+| **Space** | Hard Drop (Instant Drop) |
 | **P** | Pause / Unpause |
 
 ### Game Over
@@ -59,3 +60,4 @@ When the game ends, type your name and press **Enter** to save your score to the
 *   `ui.py`: Handles drawing text and game interface.
 *   `leaderboard.py`: Manages saving and loading high scores.
 *   `settings.py`: Configuration constants (colors, dimensions, speed).
+    *   `DRAW_GRID_LINES_ON_PIECE`: Toggle grid lines on the active piece.

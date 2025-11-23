@@ -65,6 +65,22 @@ class Game:
                 
                 elif event.key == pygame.K_p:
                     self.paused = not self.paused
+                
+                elif event.key == pygame.K_SPACE:
+                    # Hard Drop
+                    while self.grid.is_valid_position(self.current_piece):
+                        self.current_piece.move(0, 1)
+                    self.current_piece.move(0, -1) # Move back to valid position
+                    # Force lock in next loop iteration by setting fall time high?
+                    # Or just do it immediately.
+                    # Doing it immediately is better.
+                    self.grid.add_piece(self.current_piece)
+                    cleared = self.grid.clear_rows_robust()
+                    self.update_score(cleared)
+                    self.current_piece = self.next_piece
+                    self.next_piece = self.get_new_piece()
+                    if not self.grid.is_valid_position(self.current_piece):
+                        self.game_over = True
                         
         return True
 
@@ -118,6 +134,10 @@ class Game:
                     if y > -1:
                         pygame.draw.rect(self.surface, self.current_piece.color, 
                                          (x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
+                        
+                        if DRAW_GRID_LINES_ON_PIECE:
+                             pygame.draw.rect(self.surface, GRID_COLOR, 
+                                         (x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 1)
 
             else:
                 # Game Over Screen

@@ -91,3 +91,6 @@ START_SPEED = 500  # Milliseconds per step
 SPEED_DECREMENT = 20 # Decrease delay by this much per level
 MIN_SPEED = 100
 SCORE_PER_LINE = [0, 100, 300, 500, 800] # 0, 1, 2, 3, 4 lines
+
+# Feature Flags
+DRAW_GRID_LINES_ON_PIECE = True
