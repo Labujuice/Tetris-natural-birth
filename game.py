@@ -26,6 +26,15 @@ class Game:
         self.clock = pygame.time.Clock()
         
         self.player_name = ""
+        
+        # Music
+        try:
+            pygame.mixer.init()
+            pygame.mixer.music.load('assets/bgm.mp3')
+            pygame.mixer.music.play(-1) # Loop indefinitely
+            pygame.mixer.music.set_volume(0.5)
+        except Exception as e:
+            print(f"Error loading music: {e}")
 
     def get_new_piece(self):
         return Tetromino(5, 0)

@@ -15,6 +15,7 @@ A classic Tetris clone built with Python and Pygame.
 *   **Next Piece Preview**: Plan ahead by seeing the upcoming tetromino.
 *   **Local Leaderboard**: Save and view the top 10 high scores.
 *   **Pause Function**: Press 'P' to pause the game at any time.
+*   **Background Music**: Enjoy the classic Tetris theme while playing.
 
 ## Installation
 
@@ -61,3 +62,7 @@ When the game ends, type your name and press **Enter** to save your score to the
 *   `leaderboard.py`: Manages saving and loading high scores.
 *   `settings.py`: Configuration constants (colors, dimensions, speed).
     *   `DRAW_GRID_LINES_ON_PIECE`: Toggle grid lines on the active piece.
+
+## Credits
+
+*   **Background Music**: [Tetris Theme (Korobeiniki)](https://www.youtube.com/watch?v=VbWleUwTihc&list=PLPHLNVBw2pV598SPvMFKRmWH8-oEq7UfR)
