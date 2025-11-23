@@ -40,8 +40,8 @@ def draw_next_shape(surface, shape):
     for block in format:
         x, y = block
         # Adjust for display
-        pygame.draw.rect(surface, shape.color, (sx + x*BLOCK_SIZE, sy + y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
-        pygame.draw.rect(surface, BLACK, (sx + x*BLOCK_SIZE, sy + y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 1)
+        pygame.draw.rect(surface, shape.color, (sx + 40 + x*BLOCK_SIZE, sy + 40 + y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
+        pygame.draw.rect(surface, BLACK, (sx + 40 + x*BLOCK_SIZE, sy + 40 + y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 1)
 
 def draw_window(surface, grid, score=0, level=0, next_piece=None):
     surface.fill(BG_COLOR)
@@ -49,7 +49,7 @@ def draw_window(surface, grid, score=0, level=0, next_piece=None):
     # Title
     font = pygame.font.SysFont('comicsans', 60)
     label = font.render('TETRIS', 1, TEXT_COLOR)
-    surface.blit(label, (SCREEN_WIDTH / 2 - label.get_width() / 2, 0))
+    surface.blit(label, (SCREEN_WIDTH * 0.75 - label.get_width() / 2, 0))
     
     # Score
     font = pygame.font.SysFont('comicsans', 30)
