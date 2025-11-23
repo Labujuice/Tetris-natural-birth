@@ -62,6 +62,9 @@ class Game:
                     self.current_piece.rotate()
                     if not self.grid.is_valid_position(self.current_piece):
                         self.current_piece.undo_rotate()
+                
+                elif event.key == pygame.K_p:
+                    self.paused = not self.paused
                         
         return True
 
@@ -73,6 +76,13 @@ class Game:
 
             # Game Loop
             if not self.game_over:
+                if self.paused:
+                    ui.draw_text_middle(self.surface, "PAUSED", 60, WHITE)
+                    pygame.display.update()
+                    # Still handle input to unpause
+                    run = self.handle_input()
+                    continue
+
                 # Check for soft drop
                 keys = pygame.key.get_pressed()
                 current_speed = self.fall_speed
@@ -111,6 +121,7 @@ class Game:
 
             else:
                 # Game Over Screen
+                self.surface.fill(BG_COLOR) # Clear screen to prevent stacking
                 ui.draw_text_middle(self.surface, "GAME OVER", 60, WHITE, -100)
                 ui.draw_text_middle(self.surface, "Enter Name: " + self.player_name, 30, WHITE, 0)
                 

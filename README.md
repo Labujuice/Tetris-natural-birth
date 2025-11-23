@@ -1,0 +1,56 @@
+# Tetris DIY
+
+A classic Tetris clone built with Python and Pygame.
+
+## Features
+
+*   **Classic Gameplay**: Authentic Tetris mechanics with all 7 tetromino shapes.
+*   **Dynamic Difficulty**: Speed increases as you level up by clearing lines.
+*   **Scoring System**: Earn more points by clearing multiple lines at once.
+*   **Next Piece Preview**: Plan ahead by seeing the upcoming tetromino.
+*   **Local Leaderboard**: Save and view the top 10 high scores.
+*   **Pause Function**: Press 'P' to pause the game at any time.
+
+## Installation
+
+1.  **Prerequisites**: Ensure you have Python 3 installed.
+2.  **Clone the repository**:
+    ```bash
+    git clone git@github.com:Labujuice/Tetris-natural-birth.git
+    cd Tetris-natural-birth
+    ```
+3.  **Install Dependencies**:
+    ```bash
+    pip install pygame
+    ```
+
+## How to Play
+
+Run the game from the terminal:
+
+```bash
+python3 main.py
+```
+
+### Controls
+
+| Key | Action |
+| :--- | :--- |
+| **Left Arrow** | Move Left |
+| **Right Arrow** | Move Right |
+| **Down Arrow** | Soft Drop (Fall Faster) |
+| **Up Arrow** | Rotate Piece |
+| **P** | Pause / Unpause |
+
+### Game Over
+When the game ends, type your name and press **Enter** to save your score to the leaderboard.
+
+## Project Structure
+
+*   `main.py`: Entry point of the game.
+*   `game.py`: Main game logic controller.
+*   `grid.py`: Handles the game board and collision detection.
+*   `tetromino.py`: Defines piece shapes and movement.
+*   `ui.py`: Handles drawing text and game interface.
+*   `leaderboard.py`: Manages saving and loading high scores.
+*   `settings.py`: Configuration constants (colors, dimensions, speed).
