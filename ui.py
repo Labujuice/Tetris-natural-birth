@@ -54,7 +54,7 @@ def draw_window(surface, grid, score=0, level=0, next_piece=None):
     # Score
     font = pygame.font.SysFont('comicsans', 30)
     label = font.render('Score: ' + str(score), 1, TEXT_COLOR)
-    sx = GRID_WIDTH + 100 # Moved right (+30)
+    sx = GRID_WIDTH + 10  # Moved right (+30)
     sy = 400 # Moved down significantly to avoid overlap
     surface.blit(label, (sx + 10, sy))
 
