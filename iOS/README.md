@@ -1,42 +1,77 @@
 # How to Build the iOS App
 
-Since I cannot generate the `.xcodeproj` file directly (it requires Xcode on macOS), you need to create the project shell and import the files I generated.
+You can build this app on:
+1.  **Mac** (using Xcode)
+2.  **iPad** (using Swift Playgrounds)
 
-## Prerequisites
-- A Mac with **Xcode** installed.
+---
 
-## Steps
+## Option 1: Build on Mac (Xcode)
 
 ### 1. Create a New Xcode Project
 1.  Open Xcode.
 2.  Select **Create a new Xcode project**.
 3.  Choose **iOS** -> **App**.
 4.  Click **Next**.
-5.  **Product Name**: `TetrisDIY` (or whatever you like).
-6.  **Interface**: **Storyboard** (Important! My code assumes a standard View Controller setup, though we use SpriteKit programmatically).
-    *   *Alternative*: You can choose **SpriteKit** Game template, but you'll need to replace their `GameScene.swift` and `GameViewController.swift` with mine. **Recommendation: Choose "Game" template with Language: Swift, Game Technology: SpriteKit.**
-7.  Click **Next** and save it somewhere (e.g., Desktop).
+5.  **Product Name**: `TetrisDIY`.
+6.  **Interface**: **Storyboard**.
+7.  Click **Next** and save it.
 
 ### 2. Import Files
-1.  Open your new Xcode project.
-2.  Locate the `iOS` folder I created in this repository: `tetris_diy/iOS`.
-3.  Drag the **contents** of my `iOS` folder (`Models`, `Game`, `ViewControllers`) into your Xcode project navigator (the left sidebar).
-    *   **Important**: When prompted, check **"Copy items if needed"** and select **"Create groups"**.
-    *   Ensure your App Target is checked in "Add to targets".
+1.  Drag the **contents** of the `iOS` folder (`Models`, `Game`, `ViewControllers`) into your Xcode project navigator.
+2.  Check **"Copy items if needed"**.
 
 ### 3. Link the View Controller
-If you chose the **Game** template:
-1.  Delete the default `GameScene.swift`, `GameViewController.swift`, `Actions.sks`, `GameScene.sks` provided by Xcode.
-2.  My `GameViewController.swift` and `GameScene.swift` should now be the ones used.
-3.  Open `Main.storyboard`.
-4.  Select the View Controller.
-5.  In the **Identity Inspector** (right sidebar, 3rd icon), make sure **Class** is set to `GameViewController`.
-6.  In the **Attribute Inspector**, ensure the root view is of type `SKView`. (If you used the Game template, this is already done).
+1.  Open `Main.storyboard`.
+2.  Select the View Controller.
+3.  Set **Class** to `GameViewController` in the Identity Inspector.
+4.  Run the app!
 
-### 4. Build and Run
-1.  Select a Simulator (e.g., iPhone 15 Pro).
-2.  Press **Cmd + R** or click the Play button.
-3.  The game should launch!
+---
+
+## Option 2: Build on iPad (Swift Playgrounds)
+
+### 1. Prepare
+1.  Download **Swift Playgrounds** from the App Store (Free).
+2.  Open it and tap **App** (at the bottom) to create a new App project.
+
+### 2. Copy Code
+You need to copy the code from the files in this repository into your Playground App.
+
+1.  **Create Files**: In the sidebar of your Playground App, create new Swift files to match my structure (or just put them all in one, but separate is better).
+    *   `Tetromino.swift`
+    *   `Grid.swift`
+    *   `GameSettings.swift`
+    *   `GameEngine.swift`
+    *   `GameScene.swift`
+    *   `GameViewController.swift`
+    *   `PlaygroundsAdapter.swift`
+2.  **Copy Content**: Open each file in this repo, copy the code, and paste it into the corresponding file on your iPad.
+
+### 3. Set Entry Point
+1.  Open the main file in your Playground (usually named `MyApp.swift` or similar, it has `@main`).
+2.  Replace its content with this:
+
+```swift
+import SwiftUI
+
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            // Use the adapter we created in PlaygroundsAdapter.swift
+            GameView()
+                .ignoresSafeArea()
+                .statusBar(hidden: true)
+        }
+    }
+}
+```
+
+### 4. Run
+Tap the **Play** button on your iPad. The game should start!
+
+---
 
 ## Controls
 - **Tap**: Rotate
